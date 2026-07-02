@@ -1,8 +1,4 @@
 #pragma once
-#include <string>
-#include <iostream>
-#include <vector>
-#include <functional>
 #include "ScreenEntity.hpp"
 
 // This is the core game state
