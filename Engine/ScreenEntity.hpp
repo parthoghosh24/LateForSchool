@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
 // Screen entity is responsible
 // for maintaining the text as well as control data for each screen
 // i.e, main menu, pause menu, etc.
