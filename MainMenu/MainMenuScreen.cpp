@@ -1,4 +1,5 @@
 #include "MainMenuScreen.h"
+#include "../Engine/ScreenEntity.hpp"
 
 
 GameState MainMenuScreen::RenderMainMenu()
