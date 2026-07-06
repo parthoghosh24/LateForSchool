@@ -1,19 +1,19 @@
 #pragma once
-#include "../Rooms/Room.h"
-
+#include <iostream>
+#include <map>
+#include <vector>
 class Director
 {
 public:
-	// constructor
-	Director();
-
-	// destructor
-	~Director();
-
-	void IntializeGameplay();
-	
+  Director();
+  ~Director();
 private:
 
-	Room m_playerCurrentLocation = Room("Master Bedroom", "Big master bedroom with a king size mattress lying on the floor almost covering the home. There is a gate connecting to outside balcony. There is a dresser in with all the drawers unlocked. A big closet containing clothes. There is an exit door connecting to main drawing room. ");
-	
+  // This method will initialize all game related data
+  void InitializeGame();
+
+  // Room map contains the directed graph in which key is the source room id and
+  // value is the list of destination rooms.
+  std::map<std::string, std::vector<std:string>> roomMap = {}
+  
 };
