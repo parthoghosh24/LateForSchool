@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -134,10 +134,14 @@
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="LateForSchool.cpp" />
     <ClCompile Include="MainMenu\MainMenuScreen.cpp" />
+    <ClCompile Include="Narrative\Director\Director.cpp" />
+    <ClCompile Include="Narrative\Rooms\Room.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Engine.h" />
     <ClInclude Include="MainMenu\MainMenuScreen.h" />
+    <ClInclude Include="Narrative\Director\Director.h" />
+    <ClInclude Include="Narrative\Rooms\Room.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
