@@ -1,6 +1,10 @@
+#pragma once
+
 #include <iostream>
 #include <string>
+#include <string_view>
 #include <vector>
+#include "../Util/Util.h"
 
 // Screen entity is responsible
 // for maintaining the text as well as control data for each screen
@@ -10,22 +14,35 @@
 struct ScreenEntity
 {
 	// The title in the screen
-	std::string title;
+	std::string_view title;
 
 	// what content we would like to render
-	std::string content;
+	std::string_view content;
 
 	// input choices which we would like to render to the player
-	std::vector<std::string> choices;
+	std::vector<std::string_view> choices;
 
-	ScreenEntity(std::string mTitle, std::string mContent, std::vector<std::string> mChoices) : title(mTitle), content(mContent), choices(mChoices) {}
+	ScreenEntity(std::string_view mTitle, std::string_view mContent, std::vector<std::string_view> mChoices) : title(mTitle), content(mContent), choices(mChoices) {}
 
-	void Render() const
+	void Render(int dramatize = 0) const
 	{
 		std::cout << "===========================================================\n";
 		std::cout << "                      "<<title<<"\n";
 		std::cout << "===========================================================\n\n";
-		std::cout << content <<"\n\n";
+
+		// dramatize will do the typewriter effect
+
+		if (dramatize == 1)
+		{
+			Util util;
+			util.TypeWriteIt(content);
+			std::cout << "\n\n";
+		}
+		else
+		{
+			std::cout << content << "\n\n";
+		}
+		
 
 		for (const auto& choice : choices)
 		{
@@ -35,7 +52,7 @@ struct ScreenEntity
 	}
 
 	// We ensure we are always getting valid input
-	std::string GetValidInput(const std::vector<std::string>& validKeys) const
+	std::string GetValidInput(const std::vector<std::string_view>& validKeys) const
 	{
 		std::string input;
 

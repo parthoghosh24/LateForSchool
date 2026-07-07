@@ -136,12 +136,18 @@
     <ClCompile Include="MainMenu\MainMenuScreen.cpp" />
     <ClCompile Include="Narrative\Director\Director.cpp" />
     <ClCompile Include="Narrative\Rooms\Room.cpp" />
+    <ClCompile Include="Narrative\TextScenes\TextScene.cpp" />
+    <ClCompile Include="Util\Util.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Constants\Constants.h" />
     <ClInclude Include="Engine\Engine.h" />
+    <ClInclude Include="Engine\ScreenEntity.hpp" />
     <ClInclude Include="MainMenu\MainMenuScreen.h" />
     <ClInclude Include="Narrative\Director\Director.h" />
     <ClInclude Include="Narrative\Rooms\Room.h" />
+    <ClInclude Include="Narrative\TextScenes\TextScene.h" />
+    <ClInclude Include="Util\Util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

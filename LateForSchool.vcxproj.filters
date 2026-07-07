@@ -30,6 +30,12 @@
     <ClCompile Include="Narrative\Director\Director.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Narrative\TextScenes\TextScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\Util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Engine.h">
@@ -42,6 +48,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Narrative\Director\Director.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ScreenEntity.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants\Constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Narrative\TextScenes\TextScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

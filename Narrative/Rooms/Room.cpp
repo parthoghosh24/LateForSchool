@@ -1,7 +1,5 @@
 #include "Room.h"
 
-Room::Room(std::string name, std::string description)
+Room::Room()
 {
-	m_name = name;
-	m_description = description;
 }

@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "../MainMenu/MainMenuScreen.h"
+#include "../Narrative/Director/Director.h"
 #include <iostream>
 
 void Engine::Initialize()
@@ -52,6 +53,7 @@ void Engine::HandlePauseMenu()
 void Engine::HandleInGame()
 {
 	// handle in game gameplay
+	Director director;	
 }
 
 void Engine::HandleExit()

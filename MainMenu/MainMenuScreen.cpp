@@ -1,3 +1,4 @@
+#include "../Constants/Constants.h"
 #include "MainMenuScreen.h"
 #include "../Engine/ScreenEntity.hpp"
 
@@ -5,20 +6,20 @@
 GameState MainMenuScreen::RenderMainMenu()
 {
 	ScreenEntity menuScreen(
-		"LATE FOR SCHOOL",
+		Constants::MAIN_MENU_TITLE,
 		DrawArtwork(),
-		{ "[1] Start new game", "[2] Exit game" }
+		{ Constants::MAIN_MENU_OPTION_1, Constants::MAIN_MENU_OPTION_2 }
 	);
 
 	menuScreen.Render();
-	std::string choice = menuScreen.GetValidInput({ "1", "2" });
+	std::string choice = menuScreen.GetValidInput({ Constants::OPTION_ONE, Constants::OPTION_TWO });
 
 	// change game state accordingly
-	if (choice == "1")
+	if (choice == Constants::OPTION_ONE)
 	{
 		return GameState::IN_GAME;
 	}
-	else if (choice == "2")
+	else if (choice == Constants::OPTION_TWO)
 	{
 		return GameState::EXIT;
 	}
@@ -26,7 +27,7 @@ GameState MainMenuScreen::RenderMainMenu()
 	return GameState::MAIN_MENU;
 }
 
-std::string MainMenuScreen::DrawArtwork() const
+std::string_view MainMenuScreen::DrawArtwork() const
 {
     return R"(
 
