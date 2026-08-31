@@ -13,6 +13,7 @@ namespace Constants {
 	inline constexpr std::string_view OPTION_SEVEN = "7";
 	inline constexpr std::string_view OPTION_EIGHT = "8";
 	inline constexpr std::string_view OPTION_NINE = "9";
+	inline constexpr std::string_view OPTION_P = "p";
 
 	// Main menu
 	inline constexpr std::string_view MAIN_MENU_TITLE = "LATE FOR SCHOOL";
@@ -20,7 +21,7 @@ namespace Constants {
 	inline constexpr std::string_view MAIN_MENU_OPTION_2 = "[2] Exit game";
 
 	// Pause menu
-	inline constexpr std::string_view PAUSE_MENU_TITLE = "PAUSED";
+	inline constexpr std::string_view PAUSE_MENU_TITLE = "GAME PAUSED";
 	inline constexpr std::string_view PAUSE_MENU_OPTION_1 = "[1] Resume";
 	inline constexpr std::string_view PAUSE_MENU_OPTION_2 = "[2] Go to main menu";
 
@@ -34,7 +35,18 @@ namespace Constants {
 	// Rooms
 
 	// Room 1
-	inline constexpr std::string_view ROOM1_NAME = "Master Bedroom";
-	inline constexpr std::string_view ROOM1_DESCRIPTION = "Big master bedroom with a king size mattress lying on the floor almost covering the home. There is a gate connecting to outside balcony. There is a dresser in with all the drawers unlocked. A big closet containing clothes. There is an exit door connecting to main drawing room.";
+	inline constexpr std::string_view ROOM1_TITLE = "Master Bedroom";
+	inline constexpr std::string_view ROOM1_DESCRIPTION = "Big master bedroom with a king size mattress lying on the floor almost covering the home. There is a sliding door connecting to outside balcony. There is a dresser in with all the drawers unlocked. A big closet containing clothes. There is an exit door going to main drawing room.";
+	inline constexpr std::string_view ROOM1_OPTION_1 = "[1] Check Mattress";
+	inline constexpr std::string_view ROOM1_OPTION_2 = "[2] Open door to outside balcony";
+	inline constexpr std::string_view ROOM1_OPTION_3 = "[3] Check Dresser";
+	inline constexpr std::string_view ROOM1_OPTION_4 = "[4] Open closet to get clothes";
+	inline constexpr std::string_view ROOM1_OPTION_5 = "[5] Go to main drawing room";
+	inline constexpr std::string_view ROOM1_OPTION_P = "[P/p] Pause game";
+
+	inline constexpr std::string_view ROOM1_OPTION_1_RESPONSE = "There is a king sized mattress lying with beddings arranged on it.";
+	inline constexpr std::string_view ROOM1_OPTION_2_RESPONSE = "Can't open the door fully so can't go out.";
+	inline constexpr std::string_view ROOM1_OPTION_3_RESPONSE = "The first drawer is stuck and needs a screwdriver to unlock. Nothing important in rest of the drawers.";
+	inline constexpr std::string_view ROOM1_OPTION_4_RESPONSE = "Get clothes to wear.";
 }
 

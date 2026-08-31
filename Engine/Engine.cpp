@@ -1,26 +1,32 @@
 #include "Engine.h"
-#include "../MainMenu/MainMenuScreen.h"
 #include "../Narrative/Director/Director.h"
 #include <iostream>
 
 void Engine::Initialize()
-{
-	m_currentGameState = GameState::MAIN_MENU;
-	m_isRunning = true;
+{	
+	m_gameState.push(GameState::MAIN_MENU);
 }
 
 void Engine::Run()
 {
-	while (m_isRunning)
+	// game running if stack has anything in it
+	while (!m_gameState.empty())
 	{
-		// Here the actual state machine runs
-		// we would be able to switch between main menu
-		// pause menu
-		// in game
-		// exit
 
-		switch (m_currentGameState)
-		{
+		// update Gamestate
+		UpdateState();
+		
+	}
+}
+
+/// <summary>
+/// This method is responsible for handling state updationg for the entire game
+/// Whatever is at the top of stack, gets rendered.
+/// </summary>
+void Engine::UpdateState()
+{
+	switch (m_gameState.top())
+	{
 		case GameState::MAIN_MENU:
 			HandleMainMenu();
 			break;
@@ -36,32 +42,39 @@ void Engine::Run()
 		default:
 			break;
 		}
-	}
 }
+
 
 void Engine::HandleMainMenu()
 {
-	MainMenuScreen mainMenuScreen;
-	m_currentGameState = mainMenuScreen.RenderMainMenu();
+	
+	// Render screen
+	ScreenEntity mainMenu = m_mainMenuScreen.RenderMainMenu();
+
+	// Handle Input
+	GameState stateToPush = m_mainMenuScreen.HandleChoice(mainMenu);
+
+	// Update the gameState stack
+	m_gameState.push(stateToPush);
 }
 
 void Engine::HandlePauseMenu()
 {
 	// handle the pause menu
+
 }
 
 void Engine::HandleInGame()
-{
+{	
 	// handle in game gameplay
-	Director director;	
+	m_inGameDirector.Render();
 }
 
 void Engine::HandleExit()
 {
-	m_isRunning = false;
-}
-
-void Engine::ClearScreen()
-{
-	std::cout << "\033[2J\033[1;1H" << std::flush;
+	// empty the entire stack
+	while (!m_gameState.empty())
+	{
+		m_gameState.pop();
+	}
 }

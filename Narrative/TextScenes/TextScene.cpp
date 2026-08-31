@@ -2,6 +2,8 @@
 #include "../../Engine/ScreenEntity.hpp"
 #include "../../Constants/Constants.h"
 
+
+
 void TextScene::RenderTextScene(int index)
 {
 	switch (index)
@@ -19,7 +21,7 @@ void TextScene::RenderTextScene(int index)
 		std::string choice = textScene.GetValidInput({ Constants::OPTION_ONE });
 		if (choice == Constants::OPTION_ONE)
 		{
-			std::cout << "Load the interactive gameplay";
+			//std::cout << "Load the interactive gameplay";
 		}
 	}
 		

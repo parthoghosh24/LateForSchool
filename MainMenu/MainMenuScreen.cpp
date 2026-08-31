@@ -3,16 +3,22 @@
 #include "../Engine/ScreenEntity.hpp"
 
 
-GameState MainMenuScreen::RenderMainMenu()
+ScreenEntity MainMenuScreen::RenderMainMenu()
 {
-	ScreenEntity menuScreen(
+	ScreenEntity mainMenu(
 		Constants::MAIN_MENU_TITLE,
 		DrawArtwork(),
 		{ Constants::MAIN_MENU_OPTION_1, Constants::MAIN_MENU_OPTION_2 }
 	);
 
-	menuScreen.Render();
-	std::string choice = menuScreen.GetValidInput({ Constants::OPTION_ONE, Constants::OPTION_TWO });
+	mainMenu.Render();
+	
+	return mainMenu;
+}
+
+GameState MainMenuScreen::HandleChoice(ScreenEntity mainMenu)
+{
+	std::string choice = mainMenu.GetValidInput({ Constants::OPTION_ONE, Constants::OPTION_TWO });
 
 	// change game state accordingly
 	if (choice == Constants::OPTION_ONE)
@@ -24,6 +30,7 @@ GameState MainMenuScreen::RenderMainMenu()
 		return GameState::EXIT;
 	}
 
+	// This will never happen
 	return GameState::MAIN_MENU;
 }
 

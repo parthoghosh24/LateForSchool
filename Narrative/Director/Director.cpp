@@ -2,14 +2,51 @@
 #include "../TextScenes/TextScene.h"
 #include <iostream>
 
-Director::Director()
+
+void Director::Render()
 {
-	InitializeGame();
-	RunGame();
+	if (m_inGameState["currentGameplayState"] == 0)
+	{
+		m_util.ClearScreen();
+
+		// play text scene
+		TextScene textScene;
+
+		// wait for the text scene to be finished
+		textScene.RenderTextScene(m_inGameState["currentTextScene"]);
+
+		// Then update the inGameState
+		std::unordered_map<std::string, int> gameStateFieldsToUpdate;
+
+		// We will update the current gameplay state to 1 which is interactive gameplay.
+		gameStateFieldsToUpdate["currentGameplayState"] = 1;
+
+		// we will increment the current text scene so that whenever next we will play textscene
+		// The new one will be played
+		gameStateFieldsToUpdate["currentTextScene"] = m_inGameState["currentTextScene"] + 1;
+
+		UpdateInGameState(gameStateFieldsToUpdate);
+		
+	}
+	else
+	{
+		//Render current room
+		Room room;
+		ScreenEntity roomScreen = room.RenderRoom(m_inGameState["currentRoom"]);		
+		room.HandleChoice(roomScreen, m_inGameState["currentRoom"]);
+		
+	}
+		
 }
 
-Director::~Director()
+// Here we are getting a map of fields to be updated with their new values and update the existing map with it
+void Director::UpdateInGameState(std::unordered_map<std::string, int> gameStateFieldsToUpdate)
 {
+	// loop through each item of gameStateFields and update the corresponding values in inGameState map
+	for (const auto& [key, value] : gameStateFieldsToUpdate)
+	{
+		m_inGameState[key] = value;
+	}
 }
 
 void Director::MarkObjectiveAsDone(int index)
@@ -20,54 +57,4 @@ void Director::MarkObjectiveAsDone(int index)
 bool Director::CheckObjective(int index)
 {
 	return m_objectives[index];
-}
-
-void Director::InitializeGame()
-{
-	// Start with the intro text scene.
-	m_currentInGameState = InGameState::TEXT_SCENE;
-	m_isPaused = false;
-	m_currentTextScene = 0;
-
-}
-
-void Director::RunGame()
-{
-	// keep running till the game is paused
-	while (!m_isPaused)
-	{
-		switch (m_currentInGameState)
-		{
-		case InGameState::TEXT_SCENE:
-			HandleTextScene();
-			break;
-		case InGameState::GAMEPLAY_SCENE:
-			HandleGameplayScene();
-			break;
-		case InGameState::PAUSE:
-			HandlePauseGame();
-			break;
-		default:
-			break;
-		}
-	}
-}
-
-
-
-void Director::HandleTextScene()
-{
-	TextScene textScene;
-	textScene.RenderTextScene(m_currentTextScene);
-	m_isPaused = true;
-	
-}
-
-void Director::HandleGameplayScene()
-{
-}
-
-void Director::HandlePauseGame()
-{
-	m_isPaused = true;
 }

@@ -1,46 +1,36 @@
 #pragma once
 #include <iostream>
+#include <unordered_map>
 #include <map>
 #include <vector>
 #include <bitset>
+#include "../Rooms/Room.h"
+#include "../../Util/Util.h"
 
-enum class InGameState
-{
-	TEXT_SCENE, // Similar to cutscenes
-	GAMEPLAY_SCENE, // Interactive gameplay parts
-	PAUSE // pause menu
-};
 
 class Director
 {
 public:
-  Director();
-  ~Director();
+	
+	// This renders based on current in game state
+	void Render();
 
-  void MarkObjectiveAsDone(int index);
-  bool CheckObjective(int index);
+	// Update the game state
+	void UpdateInGameState(std::unordered_map<std::string, int> gameStateFieldsToUpdate);
+
+	void MarkObjectiveAsDone(int index);
+	bool CheckObjective(int index);
 
 private:
 
-  // This method will initialize all game related data
-  void InitializeGame();
+	Util m_util;
 
-  void RunGame();
+	std::unordered_map<std::string, int> m_inGameState = {
+		{"currentGameplayState", 0},
+		{"currentTextScene", 0},
+		{"currentRoom", 1},
+	};
 
-  // The game always starts with the "text scene"
-  InGameState m_currentInGameState = InGameState::TEXT_SCENE;
-
-  // This would be used as the condition to check whether we want to run the game
-  bool m_isPaused = false;
-
-  // Current text scene. This would be updated whenever new cutscene would play
-  int m_currentTextScene = 0;
-
-  void HandleTextScene();
-
-  void HandleGameplayScene();
-
-  void HandlePauseGame();
 
   // Director will hold all sharable values which are as follows:
   // 1) Objective boolean array which will determine how to end the game.

@@ -1,14 +1,10 @@
 #pragma once
 #include "ScreenEntity.hpp"
+#include "../MainMenu/MainMenuScreen.h"
+#include "../Engine/GameState.h"
+#include "../Narrative/Director/Director.h"
+#include <stack>
 
-// This is the core game state
-enum class GameState
-{
-	MAIN_MENU,
-	PAUSE_MENU,
-	IN_GAME,
-	EXIT
-};
 
 class Engine
 {
@@ -18,16 +14,25 @@ public:
 	void Initialize();
 
 	// all the things to be done when the game runs handled here.
-	void Run();
+	void Run();	
 
 private:
-	// initialize current game state, this needs to be updated whenever there is a state change.
-	GameState m_currentGameState = GameState::MAIN_MENU;
 
-	// is game running
-	bool m_isRunning = false;
+	// This will the entire game state
+	std::stack<GameState> m_gameState;
+
+	// Main menu object
+	MainMenuScreen m_mainMenuScreen;
+
+	// In game director
+	Director m_inGameDirector;
+
+	
 
 	// functions
+
+	void UpdateState();	
+
 	void HandleMainMenu();
 
 	void HandlePauseMenu();

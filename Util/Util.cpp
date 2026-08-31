@@ -12,3 +12,8 @@ void Util::TypeWriteIt(std::string_view text, int delayMs)
 		std::this_thread::sleep_for(std::chrono::milliseconds(delayMs));
 	}
 }
+
+void Util::ClearScreen()
+{
+	std::cout << "\033[2J\033[1;1H" << std::flush;
+}

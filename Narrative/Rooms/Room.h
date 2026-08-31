@@ -1,7 +1,9 @@
 #pragma once
 
+#include "../../Engine/ScreenEntity.hpp"
+#include "../../Engine/GameState.h"
+#include <iostream>
 #include <string>
-#include <map>
 
 /*
 * This class is responsible for 
@@ -11,9 +13,13 @@
 class Room
 {
 public:
-	Room();
+	//Render the room
+	ScreenEntity RenderRoom(int index);
+
+	// handle selected choice
+	void HandleChoice(ScreenEntity room, int index);
 
 private:
 
-	
+	void HandleRoom1(std::string choice);
 };
