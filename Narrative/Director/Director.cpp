@@ -16,14 +16,10 @@ void Director::Render()
 		textScene.RenderTextScene(m_inGameState["currentTextScene"]);
 
 		// Then update the inGameState
-		std::unordered_map<std::string, int> gameStateFieldsToUpdate;
-
-		// We will update the current gameplay state to 1 which is interactive gameplay.
-		gameStateFieldsToUpdate["currentGameplayState"] = 1;
-
-		// we will increment the current text scene so that whenever next we will play textscene
-		// The new one will be played
-		gameStateFieldsToUpdate["currentTextScene"] = m_inGameState["currentTextScene"] + 1;
+		std::unordered_map<std::string, int> gameStateFieldsToUpdate = { 
+			{"currentGameplayState", 1}, // We will update the current gameplay state to 1 which is interactive gameplay.
+			{"currentTextScene", m_inGameState["currentTextScene"] + 1}, // we will increment the current text scene so that whenever next we will play textscene.		
+		};		
 
 		UpdateInGameState(gameStateFieldsToUpdate);
 		
@@ -32,8 +28,7 @@ void Director::Render()
 	{
 		//Render current room
 		Room room;
-		ScreenEntity roomScreen = room.RenderRoom(m_inGameState["currentRoom"]);		
-		room.HandleChoice(roomScreen, m_inGameState["currentRoom"]);
+		room.RenderRoom(m_inGameState["currentRoom"], *this);		
 		
 	}
 		
