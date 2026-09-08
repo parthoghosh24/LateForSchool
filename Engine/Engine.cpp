@@ -29,10 +29,7 @@ void Engine::UpdateState()
 	{
 		case GameState::MAIN_MENU:
 			HandleMainMenu();
-			break;
-		case GameState::PAUSE_MENU:
-			HandlePauseMenu();
-			break;
+			break;		
 		case GameState::IN_GAME:
 			HandleInGame();
 			break;
@@ -58,22 +55,25 @@ void Engine::HandleMainMenu()
 	m_gameState.push(stateToPush);
 }
 
-void Engine::HandlePauseMenu()
-{
-	// handle the pause menu
-
-}
-
 void Engine::HandleInGame()
 {	
 	// handle in game gameplay
-	m_inGameDirector.Render();
+	m_inGameDirector.Render(*this);
 }
 
 void Engine::HandleExit()
 {
 	// empty the entire stack
 	while (!m_gameState.empty())
+	{
+		m_gameState.pop();
+	}
+}
+
+void Engine::PopTopOfGameState()
+{
+	// if gamestate not empty, pop the top
+	if (!m_gameState.empty())
 	{
 		m_gameState.pop();
 	}

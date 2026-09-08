@@ -3,12 +3,12 @@
 
 class Director;
 
-class MasterBedRoom
-{	
+class GhostCabinet
+{
 public:	
-	static inline constexpr int ID = 1;
-	void RenderMasterBedRoom(Director& director);
+	static inline constexpr int ID = 8;
+	void RenderGhostCabinet(Director& director);
 private:
-	ScreenEntity Render();
+	ScreenEntity Render(Director& director);
 	void HandleChoice(ScreenEntity room, Director& director);
 };

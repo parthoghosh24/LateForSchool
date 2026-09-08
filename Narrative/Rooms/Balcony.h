@@ -4,9 +4,9 @@
 class Director;
 
 class Balcony
-{
-	static inline int id = 1;
+{	
 public:
+	static inline constexpr int ID = 3;
 	void RenderBalcony(Director& director);
 private:
 	ScreenEntity Render();

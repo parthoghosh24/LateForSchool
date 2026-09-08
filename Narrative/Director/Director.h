@@ -4,38 +4,64 @@
 #include <map>
 #include <vector>
 #include <bitset>
+#include <string>
 #include "../Rooms/Room.h"
 #include "../../Util/Util.h"
 
+// Forward declare the engine
+class Engine;
 
 class Director
 {
 public:
 	
 	// This renders based on current in game state
-	void Render();
+	void Render(Engine& engine);
+
+	void TextSceneRender(Engine& engine);
 
 	// Update the game state
 	void UpdateInGameState(std::unordered_map<std::string, int> gameStateFieldsToUpdate);
 
-	void MarkObjectiveAsDone(int index);
-	bool CheckObjective(int index);
+	// Update the inventory state
+	void UpdateInventory(std::string key, int value);
+
+	//Check the status of inventory
+	bool CheckInventoryStatus(std::string key);
+
+	bool CheckInventoryPending();
+
+	bool CheckIfGotReady();
+
+	void Reset(Engine& engine);
+
+
 
 private:
 
 	Util m_util;
 
-	std::unordered_map<std::string, int> m_inGameState = {
-		{"currentGameplayState", 0},
-		{"currentTextScene", 0},
-		{"currentRoom", 1},
+	// inventory map
+	std::unordered_map<std::string, int> m_inventories = {
+		// 0 is false, 1 is true
+		{"screwdriver", 0 },
+		{"shoolBag", 0 },
+		{"bathed", 0 },
+		{"wornClothes", 0 },		
+		{"checkedFridge", 0 },
+		{"checkedPhoto", 0 },
+		{"checkedFloss", 0 },
+		{"usedSink", 0 },
+		{"usedToilet", 0 },
+		{"youRemembered", 0 },
 	};
 
-
-  // Director will hold all sharable values which are as follows:
-  // 1) Objective boolean array which will determine how to end the game.
-  // Lets keep it 64 bits for now but based on how we progress we would change it.
-  std::bitset<64> m_objectives;
+	//in game state
+	std::unordered_map<std::string, int> m_inGameState = {
+		{"currentGameplayState", 0},
+		{"currentTextScene", 1}, // Default is 1
+		{"currentRoom", 1},
+	};  
   
 
   

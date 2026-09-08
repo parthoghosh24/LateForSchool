@@ -3,11 +3,11 @@
 
 class Director;
 
-class MasterBedRoom
-{	
+class Washroom
+{
 public:	
-	static inline constexpr int ID = 1;
-	void RenderMasterBedRoom(Director& director);
+	static inline constexpr int ID = 5;
+	void RenderWashroom(Director& director);
 private:
 	ScreenEntity Render();
 	void HandleChoice(ScreenEntity room, Director& director);

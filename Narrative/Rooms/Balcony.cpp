@@ -19,7 +19,6 @@ ScreenEntity Balcony::Render()
 		{
 			Constants::ROOM3_OPTION_1,
 			Constants::ROOM3_OPTION_2,			
-			Constants::ROOM1_OPTION_P,
 		}
 		);
 
@@ -35,18 +34,20 @@ void Balcony::HandleChoice(ScreenEntity room, Director& director)
 		{
 			Constants::OPTION_ONE,
 			Constants::OPTION_TWO,			
-			Constants::OPTION_P,
 		}
 		);
 
 	if (choice == Constants::OPTION_ONE)
 	{
-		std::cout << "\n\n\n\n" << Constants::ROOM3_OPTION_1_RESPONSE << "\n\n\n\n";
+		// Play 3rd text scene
+		std::unordered_map<std::string, int> gameStateFieldsToUpdate = { {"currentGameplayState" , 0}, {"currentTextScene", 3}};
+		director.UpdateInGameState(gameStateFieldsToUpdate);
+		director.UpdateInventory("youRemembered", 1);
 	}
 	else if (choice == Constants::OPTION_TWO)
 	{
 		
-		std::unordered_map<std::string, int> gameStateFieldsToUpdate = { {"currentRoom" , 2} };
+		std::unordered_map<std::string, int> gameStateFieldsToUpdate = { {"currentRoom" , DrawingRoom::ID} };
 		director.UpdateInGameState(gameStateFieldsToUpdate);
 
 	}

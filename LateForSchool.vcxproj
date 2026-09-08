@@ -137,10 +137,14 @@
     <ClCompile Include="Narrative\Director\Director.cpp" />
     <ClCompile Include="Narrative\Rooms\Balcony.cpp" />
     <ClCompile Include="Narrative\Rooms\DrawingRoom.cpp" />
+    <ClCompile Include="Narrative\Rooms\ExitDoor.cpp" />
+    <ClCompile Include="Narrative\Rooms\GhostCabinet.cpp" />
+    <ClCompile Include="Narrative\Rooms\Kitchen.cpp" />
     <ClCompile Include="Narrative\Rooms\MasterBedRoom.cpp" />
     <ClCompile Include="Narrative\Rooms\Room.cpp" />
+    <ClCompile Include="Narrative\Rooms\SecondBedRoom.cpp" />
+    <ClCompile Include="Narrative\Rooms\Washroom.cpp" />
     <ClCompile Include="Narrative\TextScenes\TextScene.cpp" />
-    <ClCompile Include="PauseMenu\PauseMenuScreen.cpp" />
     <ClCompile Include="Util\Util.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,10 +156,13 @@
     <ClInclude Include="Narrative\Director\Director.h" />
     <ClInclude Include="Narrative\Rooms\Balcony.h" />
     <ClInclude Include="Narrative\Rooms\DrawingRoom.h" />
+    <ClInclude Include="Narrative\Rooms\ExitDoor.h" />
+    <ClInclude Include="Narrative\Rooms\Kitchen.h" />
     <ClInclude Include="Narrative\Rooms\MasterBedRoom.h" />
     <ClInclude Include="Narrative\Rooms\Room.h" />
+    <ClInclude Include="Narrative\Rooms\SecondBedRoom.h" />
+    <ClInclude Include="Narrative\Rooms\Washroom.h" />
     <ClInclude Include="Narrative\TextScenes\TextScene.h" />
-    <ClInclude Include="PauseMenu\PauseMenuScreen.h" />
     <ClInclude Include="Util\Util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

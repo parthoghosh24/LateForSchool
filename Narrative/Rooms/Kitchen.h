@@ -3,11 +3,11 @@
 
 class Director;
 
-class MasterBedRoom
+class Kitchen
 {	
 public:	
-	static inline constexpr int ID = 1;
-	void RenderMasterBedRoom(Director& director);
+	static inline constexpr int ID = 4;
+	void RenderKitchen(Director& director);
 private:
 	ScreenEntity Render();
 	void HandleChoice(ScreenEntity room, Director& director);

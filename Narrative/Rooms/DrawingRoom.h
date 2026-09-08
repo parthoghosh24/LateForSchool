@@ -4,9 +4,9 @@
 class Director;
 
 class DrawingRoom
-{
-	static inline int id = 1;
-public:
+{	
+public:	
+	static inline constexpr int ID = 2;
 	void RenderDrawingRoom(Director& director);
 private:
 	ScreenEntity Render();

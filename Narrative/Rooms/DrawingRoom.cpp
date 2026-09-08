@@ -22,8 +22,7 @@ ScreenEntity DrawingRoom::Render()
 			Constants::ROOM2_OPTION_3,
 			Constants::ROOM2_OPTION_4,
 			Constants::ROOM2_OPTION_5,
-			Constants::ROOM2_OPTION_6,
-			Constants::ROOM1_OPTION_P,
+			Constants::ROOM2_OPTION_6,			
 		}
 		);
 
@@ -42,8 +41,7 @@ void DrawingRoom::HandleChoice(ScreenEntity room, Director& director)
 			Constants::OPTION_THREE,
 			Constants::OPTION_FOUR,
 			Constants::OPTION_FIVE,
-			Constants::OPTION_SIX,
-			Constants::OPTION_P,
+			Constants::OPTION_SIX,			
 		}
 		);
 
@@ -57,21 +55,46 @@ void DrawingRoom::HandleChoice(ScreenEntity room, Director& director)
 	}
 	else if (choice == Constants::OPTION_THREE)
 	{
-		std::cout << "\n\n\n\n" << Constants::ROOM2_OPTION_3_RESPONSE << "\n\n\n\n";
+		// player did not bath
+		if (!director.CheckInventoryStatus("bathed"))
+		{
+			std::cout << "\n\n\n\n" << Constants::ROOM2_OPTION_3_RESPONSE_1 << "\n\n\n\n";
+		}
+
+		// player has bathed but did not wear clothes
+		else if (director.CheckInventoryStatus("bathed") && !director.CheckInventoryStatus("wornClothes"))
+		{
+			std::cout << "\n\n\n\n" << Constants::ROOM2_OPTION_3_RESPONSE_2 << "\n\n\n\n";			
+		}
+
+		// player has bathed and worn clothes
+		else if (director.CheckInventoryStatus("bathed") && director.CheckInventoryStatus("wornClothes"))
+		{
+			std::cout << "\n\n\n\n" << Constants::ROOM2_OPTION_3_RESPONSE_3 << "\n\n\n\n";
+			director.UpdateInventory("schoolBag", 1);
+		}
+
+		//player has picked up bag
+		else if (director.CheckInventoryStatus("schoolBag"))
+		{
+			std::cout << "\n\n\n\n" << Constants::ROOM2_OPTION_3_RESPONSE_4 << "\n\n\n\n";
+		}
+		
 	}
 	else if (choice == Constants::OPTION_FOUR)
 	{
-		//TODO: Go to kitchen
+		std::unordered_map<std::string, int> gameStateFieldsToUpdate = { {"currentRoom" , Kitchen::ID} };
+		director.UpdateInGameState(gameStateFieldsToUpdate);
 	}
 	else if (choice == Constants::OPTION_FIVE)
 	{
-		std::unordered_map<std::string, int> gameStateFieldsToUpdate = { {"currentRoom" , 3} };
+		std::unordered_map<std::string, int> gameStateFieldsToUpdate = { {"currentRoom" , Balcony::ID} };
 		director.UpdateInGameState(gameStateFieldsToUpdate);
 
 	}
 	else if (choice == Constants::OPTION_SIX)
 	{
-		std::unordered_map<std::string, int> gameStateFieldsToUpdate = { {"currentRoom" , 1} };
+		std::unordered_map<std::string, int> gameStateFieldsToUpdate = { {"currentRoom" , MasterBedRoom::ID}};
 		director.UpdateInGameState(gameStateFieldsToUpdate);
 
 	}

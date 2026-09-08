@@ -5,6 +5,11 @@
 #include "../Rooms/MasterBedRoom.h"
 #include "../Rooms/DrawingRoom.h"
 #include "../Rooms/Balcony.h"
+#include "../Rooms/Kitchen.h"
+#include "../Rooms/SecondBedRoom.h"
+#include "../Rooms/Washroom.h"
+#include "../Rooms/ExitDoor.h"
+#include "../Rooms/GhostCabinet.h"
 #include <iostream>
 #include <string>
 #include <unordered_map>
@@ -30,4 +35,10 @@ private:
 	MasterBedRoom m_masterBedroom;
 	DrawingRoom m_drawingRoom;
 	Balcony m_balcony;
+	Kitchen m_kitchen;
+	SecondBedRoom m_secondBedroom;
+	Washroom m_washroom;
+	ExitDoor m_exitDoor;
+	GhostCabinet m_ghostCabinet;
+
 };

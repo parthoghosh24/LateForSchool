@@ -61,20 +61,12 @@ struct ScreenEntity
 		while (true)
 		{
 			// Ask for choice
-			std::cout << "\nEnter the choice digit(0-9). Enter P or p to pause if option available: ";
+			std::cout << "\nEnter the choice (0-9): ";
 
 			// get the correct choice with getline. getLine is more like an
 			// industry standard practice instead of the default cin input.
 			// With getline, we don't need to worry about line breaks, tabs, spaces and such.
-			std::getline(std::cin, input);
-
-			// check if user has input p
-			char pOrP = static_cast<char>(std::tolower(static_cast<unsigned char>(input[0])));
-
-			if (pOrP == 'p')
-			{
-				input = "p";
-			}
+			std::getline(std::cin, input);			
 
 			for (const auto& key : validKeys)
 			{

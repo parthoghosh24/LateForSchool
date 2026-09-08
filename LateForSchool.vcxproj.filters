@@ -36,9 +36,6 @@
     <ClCompile Include="Util\Util.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PauseMenu\PauseMenuScreen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Narrative\Rooms\MasterBedRoom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -46,6 +43,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Narrative\Rooms\Balcony.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Narrative\Rooms\ExitDoor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Narrative\Rooms\Washroom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Narrative\Rooms\SecondBedRoom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Narrative\Rooms\Kitchen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Narrative\Rooms\GhostCabinet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,9 +86,6 @@
     <ClInclude Include="Util\Util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PauseMenu\PauseMenuScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\GameState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -87,6 +96,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Narrative\Rooms\Balcony.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Narrative\Rooms\Kitchen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Narrative\Rooms\Washroom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Narrative\Rooms\SecondBedRoom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Narrative\Rooms\ExitDoor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

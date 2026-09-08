@@ -21,8 +21,7 @@ ScreenEntity MasterBedRoom::Render()
 			Constants::ROOM1_OPTION_2,
 			Constants::ROOM1_OPTION_3,
 			Constants::ROOM1_OPTION_4,
-			Constants::ROOM1_OPTION_5,
-			Constants::ROOM1_OPTION_P,
+			Constants::ROOM1_OPTION_5,			
 		}
 		);
 
@@ -40,8 +39,7 @@ void MasterBedRoom::HandleChoice(ScreenEntity room, Director& director)
 			Constants::OPTION_TWO,
 			Constants::OPTION_THREE,
 			Constants::OPTION_FOUR,
-			Constants::OPTION_FIVE,
-			Constants::OPTION_P,
+			Constants::OPTION_FIVE,			
 		}
 	);
 
@@ -55,15 +53,35 @@ void MasterBedRoom::HandleChoice(ScreenEntity room, Director& director)
 	}
 	else if (choice == Constants::OPTION_THREE)
 	{
-		std::cout << "\n\n\n\n" << Constants::ROOM1_OPTION_3_RESPONSE << "\n\n\n\n";
+		// if screwdriver, play text scene
+		if (director.CheckInventoryStatus("screwdriver"))
+		{
+			// Play 2nd text scene
+			std::unordered_map<std::string, int> gameStateFieldsToUpdate = { {"currentGameplayState" , 0}, {"currentTextScene", 2} };
+			director.UpdateInGameState(gameStateFieldsToUpdate);
+		}
+		else
+		{
+			std::cout << "\n\n\n\n" << Constants::ROOM1_OPTION_3_RESPONSE << "\n\n\n\n";
+		}
+		
 	}
 	else if (choice == Constants::OPTION_FOUR)
 	{
-		std::cout << "\n\n\n\n" << Constants::ROOM1_OPTION_4_RESPONSE << "\n\n\n\n";
+		if (!director.CheckInventoryStatus("bathed"))
+		{
+			std::cout << "\n\n\n\n" << Constants::ROOM1_OPTION_4_RESPONSE_1 << "\n\n\n\n";
+		}
+		else
+		{
+			std::cout << "\n\n\n\n" << Constants::ROOM1_OPTION_4_RESPONSE_2 << "\n\n\n\n";
+			director.UpdateInventory("wornClothes", 1);
+		}
+		
 	}
 	else if (choice == Constants::OPTION_FIVE)
 	{
-		std::unordered_map<std::string, int> gameStateFieldsToUpdate = { {"currentRoom" , 2} };
+		std::unordered_map<std::string, int> gameStateFieldsToUpdate = { {"currentRoom" , DrawingRoom::ID} };
 		director.UpdateInGameState(gameStateFieldsToUpdate);
 
 	}

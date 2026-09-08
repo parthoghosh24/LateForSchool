@@ -16,6 +16,9 @@ public:
 	// all the things to be done when the game runs handled here.
 	void Run();	
 
+	// !Be careful with this method. Can't think of a better way at this moment to clear the top of game state safely.
+	void PopTopOfGameState();
+
 private:
 
 	// This will the entire game state
@@ -33,13 +36,11 @@ private:
 
 	void UpdateState();	
 
-	void HandleMainMenu();
-
-	void HandlePauseMenu();
+	void HandleMainMenu();	
 
 	void HandleInGame();
 
 	void HandleExit();
 
-	void ClearScreen();
+	void ClearScreen();	
 };

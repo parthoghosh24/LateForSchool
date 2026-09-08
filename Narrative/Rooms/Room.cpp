@@ -15,6 +15,21 @@ void Room::RenderRoom(int index, Director& director)
 	case 3:
 		m_balcony.RenderBalcony(director);
 		break;
+	case 4:
+		m_kitchen.RenderKitchen(director);
+		break;
+	case 5:
+		m_washroom.RenderWashroom(director);
+		break;
+	case 6:
+		m_secondBedroom.RenderSecondBedRoom(director);
+		break;
+	case 7:
+		m_exitDoor.RenderExitDoor(director);
+		break;
+	case 8:
+		m_ghostCabinet.RenderGhostCabinet(director);
+		break;	
 	default:
 		break;
 	}
