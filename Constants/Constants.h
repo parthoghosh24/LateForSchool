@@ -135,7 +135,7 @@ namespace Constants {
 	inline constexpr std::string_view ROOM5_OPTION_4 = "[4] Check sink cabinet.";
 	inline constexpr std::string_view ROOM5_OPTION_5 = "[5] Go back to kitchen.";	
 
-	inline constexpr std::string_view ROOM5_OPTION_1_RESPONSE_1 = "I feel freshed after brushing and washing my face.";
+	inline constexpr std::string_view ROOM5_OPTION_1_RESPONSE_1 = "I feel fresh after brushing and washing my face.";
 	inline constexpr std::string_view ROOM5_OPTION_1_RESPONSE_2 = "I don't need to use sink. I should not waste anymore time.";
 	inline constexpr std::string_view ROOM5_OPTION_2_RESPONSE_1 = "I feel relieved after using the toiled.";
 	inline constexpr std::string_view ROOM5_OPTION_2_RESPONSE_2 = "I don't have to use toilet anymore. Need to hurry now.";
