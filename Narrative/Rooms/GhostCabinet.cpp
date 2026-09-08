@@ -16,35 +16,7 @@ ScreenEntity GhostCabinet::Render(Director& director)
 {
 	std::optional<ScreenEntity> room;
 
-	// if any inventory is pending, don't give option for good ending
-	if (director.CheckInventoryPending())
-	{
-		room = ScreenEntity{
-			Constants::GHOST_TITLE,
-			Constants::GHOST_DESCRIPTION,
-			{
-				Constants::GHOST_OPTION_1,
-			}
-		};
-
-		room->Render();
-	}
-
-	// Show the second option if atleast ready so that player can get neutral ending
-	else if(director.CheckIfGotReady())
-	{
-		room = ScreenEntity{
-			Constants::GHOST_TITLE,
-			Constants::GHOST_DESCRIPTION,
-			{
-				Constants::GHOST_OPTION_1,
-				Constants::GHOST_OPTION_2,				
-			}
-		};
-
-		room->Render();
-	}
-	else // Player gets option for good ending
+	if(!director.CheckInventoryPending()) // Nothing pending. Player gets option for good ending
 	{
 		room = ScreenEntity{
 			Constants::GHOST_TITLE,
@@ -58,6 +30,33 @@ ScreenEntity GhostCabinet::Render(Director& director)
 
 		room->Render();
 	}
+	// Show the second option if atleast ready so that player can get neutral ending
+	else if (director.CheckIfGotReady())
+	{		
+		room = ScreenEntity{
+			Constants::GHOST_TITLE,
+			Constants::GHOST_DESCRIPTION,
+			{
+				Constants::GHOST_OPTION_1,
+				Constants::GHOST_OPTION_2,
+			}
+		};
+
+		room->Render();
+	}
+	// if any inventory is pending, don't give option for good ending
+	else if (director.CheckInventoryPending())
+	{		
+		room = ScreenEntity{
+			Constants::GHOST_TITLE,
+			Constants::GHOST_DESCRIPTION,
+			{
+				Constants::GHOST_OPTION_1,
+			}
+		};
+
+		room->Render();
+	}	
 
 	return std::move(*room);
 }
@@ -67,25 +66,8 @@ void GhostCabinet::HandleChoice(ScreenEntity room, Director& director)
 {
 	std::string choice = ""; 
 	
-	
-	if (director.CheckInventoryPending())
-	{
-		choice = room.GetValidInput(
-			{
-				Constants::OPTION_ONE,				
-			}
-			);
-	}
-	else if (director.CheckIfGotReady())
-	{
-		choice = room.GetValidInput(
-			{
-				Constants::OPTION_ONE,
-				Constants::OPTION_TWO,
-			}
-			);
-	}
-	else
+	// nothing pending
+	if(!director.CheckInventoryPending())
 	{
 		choice = room.GetValidInput(
 			{
@@ -96,6 +78,27 @@ void GhostCabinet::HandleChoice(ScreenEntity room, Director& director)
 			);
 
 	}
+	
+	// got ready
+	else if (director.CheckIfGotReady())
+	{
+		choice = room.GetValidInput(
+			{
+				Constants::OPTION_ONE,
+				Constants::OPTION_TWO,
+			}
+			);
+	}
+	else if (director.CheckInventoryPending())
+	{
+		choice = room.GetValidInput(
+			{
+				Constants::OPTION_ONE,				
+			}
+			);
+	}
+	
+	
 	
 
 
@@ -114,7 +117,7 @@ void GhostCabinet::HandleChoice(ScreenEntity room, Director& director)
 		director.UpdateInGameState(gameStateFieldsToUpdate);
 
 	}
-	else if (choice == Constants::OPTION_TWO)
+	else if (choice == Constants::OPTION_THREE)
 	{
 
 		// Play 7th text scene

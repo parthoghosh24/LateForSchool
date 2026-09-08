@@ -75,8 +75,7 @@ void Washroom::HandleChoice(ScreenEntity room, Director& director)
 		// if not used toilet or sink
 		if (!director.CheckInventoryStatus("usedSink") || !director.CheckInventoryStatus("usedToilet"))
 		{
-			std::cout << "\n\n\n\n" << Constants::ROOM5_OPTION_3_RESPONSE_1 << "\n\n\n\n";
-			director.UpdateInventory("usedToilet", 1);
+			std::cout << "\n\n\n\n" << Constants::ROOM5_OPTION_3_RESPONSE_1 << "\n\n\n\n";			
 		}
 		// if not bathed
 		else if (!director.CheckInventoryStatus("bathed"))

@@ -43,7 +43,7 @@ namespace Constants {
 
 	// Text scene 4
 	inline constexpr std::string_view TEXT_SCENE4_TITLE = "THE CANDIES";
-	inline constexpr std::string_view TEXT_SCENE4_DESCRIPTION = "You opened the fridge to see if you can quickly grab something to eat. You rummaged through the fridge. Suddenly you found the packet of candies you bought for him. \"He used to love these. He didn't even take these before leaving. How could do it even after doing so much for you?.... I am not hungry anymore.\" You close the fridge.";
+	inline constexpr std::string_view TEXT_SCENE4_DESCRIPTION = "You opened the fridge to see if you can quickly grab something to eat. You rummaged through the fridge. Suddenly you found the packet of candies you bought for him. \"He used to love these. He didn't even take these before leaving. How could you do it even after doing so much for you?.... I am not hungry anymore.\" You close the fridge.";
 	inline constexpr std::string_view TEXT_SCENE4_OPTION_1 = "[1] Press to continue";
 
 	// Endings
@@ -55,7 +55,7 @@ namespace Constants {
 
 	// Neutral ending 6
 	inline constexpr std::string_view TEXT_SCENE6_TITLE = "Conversation with the ghost";
-	inline constexpr std::string_view TEXT_SCENE6_DESCRIPTION = "You: \"I hate you! How could you do this to us? How could you be so selfish? You didn't think about what your people would go through. I hate you from the deepest core of my heart!\" \n\n\n\n Ghost: Doesn't say anything, smiles and goes back into hiding. \n\n\n\n You are scared and angry at the same time. You take the keys with shaking hands and close the closet. You are ready to leave the home. You step out of your condo and lock the door from outside. You leave for the school feeling pain, anger and fear. You are fearful that you will see him again whenever you open the closet.";
+	inline constexpr std::string_view TEXT_SCENE6_DESCRIPTION = "You: \"I hate you! How could you do this to us? How could you be so selfish? You didn't think about what your people would go through. I hate you from the deepest core of my heart!\" \n\n\n\n Ghost: Doesn't say anything, smiles and goes back into hiding. \n\n\n\n You are scared and angry at the same time. You take the keys with shaking hands and close the closet. You are ready to leave the home. You step out of your condo and lock the door from outside. You leave for the school feeling sorrow, anger and fear. You are fearful that you will see him again whenever you open the closet.";
 	inline constexpr std::string_view TEXT_SCENE6_OPTION_1 = "[1] Press to continue";
 
 	// Good ending 7

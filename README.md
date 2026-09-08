@@ -13,3 +13,4 @@ I made it because I wanted to teach myself C++. I chose C++ 17 (didn't got with 
 * Inventory management system.
 * Dynamic responses based on the preconditions.
 * Multiple endings.
+* Graph like structure connecting various rooms and dependencies.

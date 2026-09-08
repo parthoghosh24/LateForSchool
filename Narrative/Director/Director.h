@@ -45,7 +45,7 @@ private:
 	std::unordered_map<std::string, int> m_inventories = {
 		// 0 is false, 1 is true
 		{"screwdriver", 0 },
-		{"shoolBag", 0 },
+		{"schoolBag", 0 },
 		{"bathed", 0 },
 		{"wornClothes", 0 },		
 		{"checkedFridge", 0 },

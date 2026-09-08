@@ -75,9 +75,10 @@ bool Director::CheckInventoryStatus(std::string key)
 
 // Check atleast the player has got ready to leave, we can show another ending option
 bool Director::CheckIfGotReady()
-{
+{	
+
 	return m_inventories["screwdriver"]
-		&& m_inventories["shoolBag"]
+		&& m_inventories["schoolBag"]
 		&& m_inventories["bathed"]
 		&& m_inventories["wornClothes"];
 }
@@ -85,17 +86,17 @@ bool Director::CheckIfGotReady()
 // if anything is pending, no good ending
 bool Director::CheckInventoryPending()
 {
-	for (const auto& [key, value] : m_inventories)
-	{
-		// if any value is 0 that means inventory is pending
-		if (value == 0)
-		{
-			return true;
-		}
-	}
-
-	// nothing pending
-	return false;
+	return m_inventories["screwdriver"]
+		&& m_inventories["schoolBag"]
+		&& m_inventories["bathed"]
+		&& m_inventories["wornClothes"]
+		&& m_inventories["checkedFridge"]
+		&& m_inventories["checkedPhoto"]
+		&& m_inventories["checkedFloss"]
+		&& m_inventories["usedSink"]
+		&& m_inventories["usedToilet"]
+		&& m_inventories["youRemembered"];
+	
 }
 
 //Reset everything
@@ -104,15 +105,15 @@ void Director::Reset(Engine& engine)
 	m_inventories = {
 		// 0 is false, 1 is true
 		{"screwdriver", 0 },
-		{"shoolBag", 0 },
+		{"schoolBag", 0 },
 		{"bathed", 0 },
 		{"wornClothes", 0 },
-		{"stoodAtBalcony", 0 },
 		{"checkedFridge", 0 },
 		{"checkedPhoto", 0 },
 		{"checkedFloss", 0 },
 		{"usedSink", 0 },
 		{"usedToilet", 0 },
+		{"youRemembered", 0 },
 	};
 
 	//in game state
