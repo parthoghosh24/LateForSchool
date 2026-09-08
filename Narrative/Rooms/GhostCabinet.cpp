@@ -16,7 +16,7 @@ ScreenEntity GhostCabinet::Render(Director& director)
 {
 	std::optional<ScreenEntity> room;
 
-	if(!director.CheckInventoryPending()) // Nothing pending. Player gets option for good ending
+	if(director.CheckInventoryNotPending()) // Nothing pending. Player gets option for good ending
 	{
 		room = ScreenEntity{
 			Constants::GHOST_TITLE,
@@ -45,7 +45,7 @@ ScreenEntity GhostCabinet::Render(Director& director)
 		room->Render();
 	}
 	// if any inventory is pending, don't give option for good ending
-	else if (director.CheckInventoryPending())
+	else if (!director.CheckInventoryNotPending())
 	{		
 		room = ScreenEntity{
 			Constants::GHOST_TITLE,
@@ -67,7 +67,7 @@ void GhostCabinet::HandleChoice(ScreenEntity room, Director& director)
 	std::string choice = ""; 
 	
 	// nothing pending
-	if(!director.CheckInventoryPending())
+	if(director.CheckInventoryNotPending())
 	{
 		choice = room.GetValidInput(
 			{
@@ -89,7 +89,7 @@ void GhostCabinet::HandleChoice(ScreenEntity room, Director& director)
 			}
 			);
 	}
-	else if (director.CheckInventoryPending())
+	else if (!director.CheckInventoryNotPending())
 	{
 		choice = room.GetValidInput(
 			{

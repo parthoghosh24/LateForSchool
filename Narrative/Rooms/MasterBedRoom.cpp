@@ -32,7 +32,7 @@ ScreenEntity MasterBedRoom::Render()
 
 // Responsible for handling the choices based on user input
 void MasterBedRoom::HandleChoice(ScreenEntity room, Director& director)
-{
+{	
 	std::string choice = room.GetValidInput(
 		{
 			Constants::OPTION_ONE,

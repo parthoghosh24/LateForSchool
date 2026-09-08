@@ -29,7 +29,7 @@ public:
 	//Check the status of inventory
 	bool CheckInventoryStatus(std::string key);
 
-	bool CheckInventoryPending();
+	bool CheckInventoryNotPending();
 
 	bool CheckIfGotReady();
 

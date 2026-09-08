@@ -1,6 +1,6 @@
 # LateForSchool
 
-Late for school is a psychological horror text adventure where your end goal is to get the happy ending. There are 3 endings in the game. It is a classic text adventure with dynamic choices and inventory management.
+Late for school is a psychological horror text adventure where your end goal is to get the happy ending. There are 3 endings in the game. It is a classic text adventure with dynamic choices and inventory management. WARNING: This game has depiction of violence and self harm.
 
 ## How to play?
 
