@@ -85,7 +85,7 @@ bool Director::CheckIfGotReady()
 
 // if anything is pending, no good ending
 bool Director::CheckInventoryNotPending()
-{
+{	
 	return m_inventories["screwdriver"]
 		&& m_inventories["schoolBag"]
 		&& m_inventories["bathed"]

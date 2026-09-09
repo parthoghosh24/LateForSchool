@@ -59,6 +59,7 @@ void MasterBedRoom::HandleChoice(ScreenEntity room, Director& director)
 			// Play 2nd text scene
 			std::unordered_map<std::string, int> gameStateFieldsToUpdate = { {"currentGameplayState" , 0}, {"currentTextScene", 2} };
 			director.UpdateInGameState(gameStateFieldsToUpdate);
+			director.UpdateInventory("checkedPhoto", 1);
 		}
 		else
 		{
